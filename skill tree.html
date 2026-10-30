@@ -1,0 +1,248 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>SEO DUMMY | Skill Ladder</title> 
+<meta name="description" content="practical guides on SEO"> 
+<link rel="canonical" href="https://example.com/"> 
+<meta name="robots" content="index, follow">
+
+<!-- Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Level Up Your Aim and Game Sense | Skill Ladder">
+<meta property="og:description" content="practical guides on SEO.">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/og-image.jpg"> 
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #eef1f6;
+    --ink: #1b1f3b;
+    --muted: #4d5373;
+    --card: #ffffff;
+    --blue: #2f5bea;
+    --pink: #d92a73;
+    --gold: #ffd23f;
+    --line: #cfd5e4;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", system-ui, sans-serif; line-height: 1.1; margin: 0 0 .5em; }
+  h1 { font-size: clamp(2.4rem, 7vw, 4.4rem); font-weight: 800; letter-spacing: -.02em; }
+  h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; }
+  h3 { font-size: 1.2rem; font-weight: 800; }
+  a { color: var(--blue); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+  section { padding: 64px 0; }
+  p { max-width: 68ch; }
+
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 8px; }
+  .skip:focus { left: 8px; z-index: 10; }
+
+  header.site { border-bottom: 2px solid var(--ink); background: var(--paper); }
+  header.site .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+  .logo { font: 800 1.3rem "Bricolage Grotesque", sans-serif; color: var(--ink); text-decoration: none; }
+  nav ul { display: flex; flex-wrap: wrap; gap: 6px 22px; list-style: none; margin: 0; padding: 0; }
+  nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
+  nav a:hover { color: var(--pink); }
+
+  /* Hero: character-sheet stat bars are the memorable element */
+  .hero { padding-top: 56px; }
+  .hero .grid { display: grid; gap: 40px; grid-template-columns: 1.15fr 1fr; align-items: center; }
+  .hero p.lead { font-size: 1.2rem; color: var(--muted); }
+  .btn { display: inline-block; background: var(--pink); color: #fff; font-weight: 700; text-decoration: none; padding: 14px 24px; border-radius: 10px; border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--ink); }
+  .btn.alt { background: var(--gold); color: var(--ink); margin-left: 8px; }
+  .sheet { background: var(--card); border: 2px solid var(--ink); border-radius: var(--radius); padding: 24px; box-shadow: 6px 6px 0 var(--ink); }
+  .sheet h2 { font-size: 1.2rem; margin-bottom: 16px; }
+  .stat { margin-bottom: 14px; }
+  .stat .row { display: flex; justify-content: space-between; font-weight: 600; font-size: .95rem; }
+  .bar { height: 14px; background: var(--paper); border: 2px solid var(--ink); border-radius: 99px; overflow: hidden; }
+  .bar span { display: block; height: 100%; background: var(--blue); }
+  .stat:nth-child(2) .bar span { background: var(--pink); }
+  .stat:nth-child(3) .bar span { background: var(--gold); }
+
+  /* Skills */
+  .skills { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 28px; }
+  .skill { background: var(--card); border: 2px solid var(--ink); border-radius: var(--radius); padding: 22px; }
+  .skill p { margin: 0 0 12px; color: var(--muted); font-size: .98rem; }
+
+  /* Guides list */
+  .guides { list-style: none; padding: 0; margin: 28px 0 0; border-top: 2px solid var(--ink); }
+  .guides li { border-bottom: 1px solid var(--line); padding: 18px 0; display: grid; gap: 4px 20px; grid-template-columns: 1fr auto; }
+  .guides h3 { margin: 0; }
+  .guides h3 a { color: var(--ink); text-decoration: none; }
+  .guides h3 a:hover { color: var(--pink); }
+  .guides p { margin: 0; color: var(--muted); grid-column: 1; }
+  .guides .meta { grid-row: 1; grid-column: 2; font-size: .9rem; color: var(--muted); }
+
+  /* About + FAQ */
+  .about { display: grid; gap: 28px; grid-template-columns: 1fr 1.4fr; }
+  .about .badge { background: var(--gold); border: 2px solid var(--ink); border-radius: var(--radius); padding: 22px; }
+  details { background: var(--card); border: 2px solid var(--ink); border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { margin: 10px 0 0; }
+
+  footer { background: var(--ink); color: #dfe3f5; padding: 36px 0; font-size: .95rem; }
+  footer a { color: var(--gold); }
+
+  @media (max-width: 760px) {
+    .hero .grid, .about { grid-template-columns: 1fr; }
+    .guides li { grid-template-columns: 1fr; }
+    .guides .meta { grid-row: auto; grid-column: 1; }
+    .btn.alt { margin: 12px 0 0; }
+  }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/">skill growth</a> <!-- [EDIT] site name -->
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#items">items</a></li>
+        <li><a href="#def">def</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <h1>SEO skill growth</h1> <!-- [EDIT] -->
+        <p class="lead">Short, test of SEO</p> <!-- [EDIT] -->
+        <p>
+          <a class="btn" href="/guides/exploration">explore the page</a>
+          <a class="btn alt" href="#guides">Browse guides</a>
+        </p>
+      </div>
+      <aside class="sheet" aria-labelledby="sheet-title">
+        <h2 id="sheet-title">Your skill sheet</h2>
+        <!-- [EDIT] change labels and widths -->
+        <div class="stat"><div class="row"><span>task</span><span>72</span></div><div class="bar"><span style="width:72%"></span></div></div>
+        <div class="stat"><div class="row"><span>task</span><span>72</span></div><div class="bar"><span style="width:72%"></span></div></div>
+        <div class="stat"><div class="row"><span>task</span><span>72</span></div><div class="bar"><span style="width:72%"></span></div></div>
+        <div class="stat"><div class="row"><span>task</span><span>72</span></div><div class="bar"><span style="width:72%"></span></div></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SKILLS: each card links to its own page (internal linking) -->
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills you can train</h2>
+      <p>measuring the change.</p>
+      <div class="skills">
+        <article class="skill">
+          <h3>SEO INTRO</h3>
+          <p>fundamentals that grows the web</p>
+          <a href="/skills/analysis">Train your analysis skills</a>
+        </article>
+        <article class="skill">
+          <h3>SEO analysis sense</h3>
+          <p>Reading, predicting and making calm decisions.</p>
+          <a href="/skills/seo-analysis-sense">Build SEO analysis sense</a>
+        </article>
+        <article class="skill">
+          <h3>developmentk</h3>
+          <p>.....</p>
+          <a href="/skills/development">Improve ...</a>
+        </article>
+        <article class="skill">
+          <h3>reading time</h3>
+          <p>everyday.</p>
+          <a href="/skills/reading-time">Sharpen the work</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDES: one article per specific search question -->
+  <section id="guides">
+    <div class="wrap">
+      <h2>Latest guides</h2>
+      <ul class="guides">
+        <!-- [EDIT] each guide = one page targeting one search question -->
+        <li>
+          <h3><a href="/guides on SEO"></a>GIDES ON SEO</h3>
+          <span class="meta"><time datetime="2026-10-29">Oct 29, 2026</time></span>
+          <p>do as fast as ya can.</p>
+        </li>
+        <li>
+          <h3><a href="/guides/how to find the guide">how to find the gide</a></h3>
+          <span class="meta"><time datetime="2026-10-22">Oct 22, 2026</time></span>
+          <p>google it.</p>
+        </li>
+        <li>
+          <h3><a href="/guides/better-callouts">How to implement</a></h3>
+          <span class="meta"><time datetime="2026-10-15">Oct 15, 2026</time></span>
+          <p>js read nga.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+ 
+  <section id="about">
+    <div class="wrap about">
+      <div class="badge">
+        <h2>JHOL MOMO</h2>
+        <p>JHOL MOMO</p> 
+      </div>
+      <div>
+        <p>Add your real experience here: .</p> 
+        <p><a href="/about">Read the full story</a></p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="faq">
+    <div class="wrap">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>How long does it take to improve?</summary>
+        <p>long enough.</p>
+      </details>
+      <details>
+        <summary>m i getting better?</summary>
+        <p>might be at some point.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Skill Ladder. <a href="/privacy">Privacy</p>
+    <p>this is just a test page for SEO. </p>
+  </div>
+</footer>
+</body>
+</html>
